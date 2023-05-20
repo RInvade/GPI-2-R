@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+   <file path="/home/alumno/Escritorio/GPI-2-R/Android-NFC/app/src/main/java/com/peerbits/nfccardread/NFCCardReading.java"
+         totalNumberOfTokens="1060"/>
+   <file path="/home/alumno/Escritorio/GPI-2-R/Android-NFC/app/src/main/java/com/peerbits/nfccardread/NFCPayActivity.java"
+         totalNumberOfTokens="415"/>
+   <file path="/home/alumno/Escritorio/GPI-2-R/Android-NFC/app/src/main/java/com/peerbits/nfccardread/NFCRead.java"
+         totalNumberOfTokens="1005"/>
+   <file path="/home/alumno/Escritorio/GPI-2-R/Android-NFC/app/src/main/java/com/peerbits/nfccardread/NFCWrite.java"
+         totalNumberOfTokens="582"/>
+   <file path="/home/alumno/Escritorio/GPI-2-R/Android-NFC/app/src/main/java/com/peerbits/nfccardread/NfcHome.java"
+         totalNumberOfTokens="285"/>
+   <file path="/home/alumno/Escritorio/GPI-2-R/Android-NFC/app/src/main/java/com/peerbits/nfccardread/SplashActivity.java"
+         totalNumberOfTokens="95"/>
+   <file path="/home/alumno/Escritorio/GPI-2-R/Android-NFC/app/src/test/java/com/peerbits/nfccardread/ExampleUnitTest.java"
+         totalNumberOfTokens="24"/>
+   <duplication lines="27" tokens="156">
+      <file begintoken="1893"
+            column="5"
+            endcolumn="66"
+            endline="81"
+            endtoken="2048"
+            line="55"
+            path="/home/alumno/Escritorio/GPI-2-R/Android-NFC/app/src/main/java/com/peerbits/nfccardread/NFCRead.java"/>
+      <file begintoken="3032"
+            column="5"
+            endcolumn="66"
+            endline="106"
+            endtoken="3187"
+            line="80"
+            path="/home/alumno/Escritorio/GPI-2-R/Android-NFC/app/src/main/java/com/peerbits/nfccardread/NFCWrite.java"/>
+      <codefragment><![CDATA[    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        IntentFilter tagDetected = new IntentFilter(NfcAdapter.ACTION_TAG_DISCOVERED);
+        IntentFilter ndefDetected = new IntentFilter(NfcAdapter.ACTION_NDEF_DISCOVERED);
+        IntentFilter techDetected = new IntentFilter(NfcAdapter.ACTION_TECH_DISCOVERED);
+        IntentFilter[] nfcIntentFilter = new IntentFilter[]{techDetected, tagDetected, ndefDetected};
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(
+                this, 0, new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+        if (mNfcAdapter != null)
+            mNfcAdapter.enableForegroundDispatch(this, pendingIntent, nfcIntentFilter, null);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mNfcAdapter != null)
+            mNfcAdapter.disableForegroundDispatch(this);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);]]></codefragment>
+   </duplication>
+   <duplication lines="24" tokens="100">
+      <file begintoken="1206"
+            column="80"
+            endcolumn="6"
+            endline="60"
+            endtoken="1305"
+            line="37"
+            path="/home/alumno/Escritorio/GPI-2-R/Android-NFC/app/src/main/java/com/peerbits/nfccardread/NfcHome.java"/>
+      <file begintoken="1661"
+            column="53"
+            endcolumn="6"
+            endline="91"
+            endtoken="1760"
+            line="68"
+            path="/home/alumno/Escritorio/GPI-2-R/Android-NFC/app/src/main/java/com/peerbits/nfccardread/NFCPayActivity.java"/>
+      <codefragment><![CDATA[        mAnimation = AnimationUtils.loadAnimation(NfcHome.this, R.anim.swinging);
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        Intent intent;
+        switch (view.getId()) {
+            case R.id.rlReadNFCTAG:
+                intent = new Intent(this, NFCRead.class);
+                this.startActivity(intent);
+                break;
+
+            case R.id.rlWriteWithNFC:
+                intent = new Intent(this, NFCWrite.class);
+                this.startActivity(intent);
+                break;
+
+            case R.id.rlCreditCard:
+                intent = new Intent(this, NFCCardReading.class);
+                this.startActivity(intent);
+                break;
+        }
+    }]]></codefragment>
+   </duplication>
+</pmd-cpd>
