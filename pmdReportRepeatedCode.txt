@@ -1,6 +1,6 @@
 Found a 27 line (156 tokens) duplication in the following files: 
-Starting at line 55 of /home/alumno/Escritorio/GPI-2-R/Android-NFC/app/src/main/java/com/peerbits/nfccardread/NFCRead.java
-Starting at line 80 of /home/alumno/Escritorio/GPI-2-R/Android-NFC/app/src/main/java/com/peerbits/nfccardread/NFCWrite.java
+Starting at line 55 of /home/alumno/Escritorio/PRUEBA/GPI-2-R/Android-NFC/app/src/main/java/com/peerbits/nfccardread/NFCRead.java
+Starting at line 80 of /home/alumno/Escritorio/PRUEBA/GPI-2-R/Android-NFC/app/src/main/java/com/peerbits/nfccardread/NFCWrite.java
 
     }
 
@@ -31,8 +31,8 @@ Starting at line 80 of /home/alumno/Escritorio/GPI-2-R/Android-NFC/app/src/main/
         Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
 =====================================================================
 Found a 24 line (100 tokens) duplication in the following files: 
-Starting at line 37 of /home/alumno/Escritorio/GPI-2-R/Android-NFC/app/src/main/java/com/peerbits/nfccardread/NfcHome.java
-Starting at line 68 of /home/alumno/Escritorio/GPI-2-R/Android-NFC/app/src/main/java/com/peerbits/nfccardread/NFCPayActivity.java
+Starting at line 37 of /home/alumno/Escritorio/PRUEBA/GPI-2-R/Android-NFC/app/src/main/java/com/peerbits/nfccardread/NfcHome.java
+Starting at line 68 of /home/alumno/Escritorio/PRUEBA/GPI-2-R/Android-NFC/app/src/main/java/com/peerbits/nfccardread/NFCPayActivity.java
 
         mAnimation = AnimationUtils.loadAnimation(NfcHome.this, R.anim.swinging);
     }
