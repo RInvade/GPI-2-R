@@ -1,0 +1,38 @@
+Found a 14 line (156 tokens) duplication in the following files: 
+Starting at line 34 of /home/alumno/Escritorio/GPI-2-R/easybuggy/src/main/java/org/t246osslab/easybuggy/troubles/MemoryLeakServlet.java
+Starting at line 36 of /home/alumno/Escritorio/GPI-2-R/easybuggy/src/main/java/org/t246osslab/easybuggy/troubles/MemoryLeakServlet2.java
+
+                if (MemoryType.HEAP.equals(memoryPoolMXBean.getType())) {
+                    bodyHtml.append("<p>" + memoryPoolMXBean.getName() + "</p>");
+                    bodyHtml.append("<table class=\"table table-striped table-bordered table-hover\" style=\"font-size:small;\">");
+                    bodyHtml.append("<tr><th></th>");
+                    bodyHtml.append("<th width=\"18%\">" + getMsg("label.memory.init", locale) + "</th>");
+                    bodyHtml.append("<th width=\"18%\">" + getMsg("label.memory.used", locale) + "</th>");
+                    bodyHtml.append("<th width=\"18%\">" + getMsg("label.memory.committed", locale) + "</th>");
+                    bodyHtml.append("<th width=\"18%\">" + getMsg("label.memory.max", locale) + "</th></tr>");
+                    writeUsageRow(bodyHtml, memoryPoolMXBean.getUsage(), getMsg("label.memory.usage", locale));
+                    writeUsageRow(bodyHtml, memoryPoolMXBean.getPeakUsage(), getMsg("label.memory.peak.usage", locale));
+                    writeUsageRow(bodyHtml, memoryPoolMXBean.getCollectionUsage(), getMsg("label.memory.collection.usage", locale));
+                    bodyHtml.append("</table>");
+                }
+            }
+=====================================================================
+Found a 15 line (119 tokens) duplication in the following files: 
+Starting at line 54 of /home/alumno/Escritorio/GPI-2-R/easybuggy/src/main/java/org/t246osslab/easybuggy/troubles/MemoryLeakServlet.java
+Starting at line 58 of /home/alumno/Escritorio/GPI-2-R/easybuggy/src/main/java/org/t246osslab/easybuggy/troubles/MemoryLeakServlet2.java
+
+            responseToClient(req, res, getMsg("title.memoryleak.page", locale), bodyHtml.toString());
+        }
+    }
+
+    private void writeUsageRow(StringBuilder bodyHtml, MemoryUsage usage, String usageName) {
+        if (usage != null) {
+            bodyHtml.append("<tr><td>" + usageName + "</td>");
+            bodyHtml.append("<td>" + usage.getInit() + "</td>");
+            bodyHtml.append("<td>" + usage.getUsed() + "</td>");
+            bodyHtml.append("<td>" + usage.getCommitted() + "</td>");
+            bodyHtml.append("<td>" + (usage.getMax() == -1 ? "[undefined]" : usage.getMax()) + "</td></tr>");
+        }
+    }
+
+    private void toDoRemove() {
