@@ -7,9 +7,9 @@ echo "Generando informe"
 echo "Analisis finalizado"
 cd easybuggy
 echo "Compilando"
-mvn compile
+mvn clean compile
 echo "Generando .war"
-mvn clean package
+mvn package
 cd ..
 echo "RUTAS DE INFORMES: "
 echo file://$PWD/ebpmdReportRepeatedCode.txt
