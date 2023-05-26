@@ -10,6 +10,7 @@ echo "Compilando"
 mvn clean compile
 echo "Generando .war"
 mvn package
+mv target/ROOT.war ../ENTREGABLES
 cd ..
 echo "RUTAS DE INFORMES: "
 echo file://$PWD/ebpmdReportRepeatedCode.txt

@@ -8,9 +8,9 @@ echo "Analisis finalizado"
 cd Android-NFC
 echo "Generando apk"
 ./gradlew assembleDebug
-cd ..
-echo "LA APK GENERADA SE ENCUENTRA EN :  $PWD/app/build/outputs/apk/debug/"
+
 echo "RUTAS DE INFORMES: "
+mv app/build/outputs/apk/debug/app-debug.apk ../ENTREGABLES
 echo file://$PWD/pmdReportRepeatedCode.txt
 echo file://$PWD/pmdReport.html
 
